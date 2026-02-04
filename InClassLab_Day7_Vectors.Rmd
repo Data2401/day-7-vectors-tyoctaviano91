@@ -135,7 +135,14 @@ sum(is_a)
 
 
 ```{r}
+set.seed(2401)
+die_rolls <- sample(1:6, 200, replace = T, prob = NULL)
+die_rolls
+table(die_rolls)
+proportions <- table(die_rolls) / length(die_rolls)
+proportions
 
+"2 is most common"
 ```
 
 
