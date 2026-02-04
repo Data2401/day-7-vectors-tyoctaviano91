@@ -49,10 +49,9 @@ sub_m_n
 
 ```{r}
 x_range <- seq(-5, 10, by = 0.1)
-x_range
-
 sin_wave <- sin(x_range)
-plot(sin_wave, type = "l")
+
+plot(x_range, sin_wave, type = "l")
 
 ```
 
@@ -67,6 +66,22 @@ plot(sin_wave, type = "l")
 6. Use indexing to create a new vector that contains the first 3 elements and last 3 elements of your combined vector. 
 7. Bonus/extra: do the above in a way that would work no matter how long the vector is (as long as it's longer than 2 elements)
 
+```{r}
+first_nums <- 40:50
+next_nums <- seq(51, 60)
+
+combine <- c(first_nums, next_nums)
+combine
+
+combine[7]
+combine[5:8]
+
+length(combine)
+combine(-4:-18)
+
+```
+
+
 ## In-Class Activities
 
 1. Missingness 
@@ -78,6 +93,13 @@ plot(sin_wave, type = "l")
 
 ```{r}
 x <- c(3.2, NA, 4.1, 5.0, NA, 2.8)
+
+is.na(x)
+
+x_no_na <- x[!is.na(x)]
+x_no_na
+
+x_no_na
 
 ```
 
@@ -92,7 +114,15 @@ x <- c(3.2, NA, 4.1, 5.0, NA, 2.8)
      * sum(is_a) (since TRUE counts as 1)
 
 ```{r}
+grades <- c(99,  77, 100,  91,  87,  72,  82,  94,  81)
 
+is_a <- grades >= 90
+is_a
+
+which(is_a)
+
+length(grades[is_a])
+sum(is_a)
 ```
 
 1.  Emperical probabilities
