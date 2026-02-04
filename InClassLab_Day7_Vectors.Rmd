@@ -47,6 +47,15 @@ sub_m_n
      + the x vector goes in the first argument, the y vector goes in the second argument
      + You'll need to add the argument `type = "l"` for a line. NOTE: That is a lower case "L", not a 1. 
 
+```{r}
+x_range <- seq(-5, 10, by = 0.1)
+x_range
+
+sin_wave <- sin(x_range)
+plot(sin_wave, type = "l")
+
+```
+
 
 ### Set 3 
 
