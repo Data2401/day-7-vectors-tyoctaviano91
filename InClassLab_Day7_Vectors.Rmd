@@ -260,5 +260,33 @@ print(paste(winner, "wins."))
 
 ```{r}
 # Your "cheating" function goes here
+roll_weighted_die <- function(name1, name2){
+  
+  die_prob1 <- c(rep(0.2, 3), 0.5, 0.6, 0.7)
+  die_prob2 <- c(rep(1/6, 6))
+  
+  roll1 <- sample(1:6, 15, replace = T, prob = die_prob1)
+  roll2 <- sample(1:6, 15, replace = T, prob = die_prob2)
+  
+  print(roll1)
+  print(roll2)
+  
+  win1 <- sum(roll1 > roll2)
+  win2 <- sum(roll2 > roll1)
+  
+  if(win1 > win2){
+    print(name1)
+  }
+  else if(win2 > win1){
+    print(name2)
+  }
+  else{
+    print("Draw.")
+  }
+}
+
+weighted_winner <- roll_weighted_die("Bob", "Boopy")
+
+"The second person only won 1/10 of the times."
 ```
 
