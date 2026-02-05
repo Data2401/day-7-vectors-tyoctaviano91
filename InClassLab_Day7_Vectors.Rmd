@@ -179,16 +179,30 @@ dice.roll()
 ```{r}
 # Your one-roll function goes here
 dice_roll <- function(name1, name2){
-  prob_roll <- c(rep(1:6, 6))
-  roll <- funtion(){
+  prob_roll <- c(rep(1/6, 6))
+  roll <- function(){
     sample(1:6, 1, replace = T, prob = prob_roll)
   }
   
   roll_1 <- roll()
   roll_2 <- roll()
   
+  if(roll_1 == roll_2){
+    roll_1 <- roll()
+    roll_2 <- roll()
+  }
+  
+  if(roll_1 > roll_2){
+    return(name1)
+  } else if(roll_2 > roll_1){
+    return(name2)
+  } else {
+    return("draw")
+  }
 }
 
+winner <- dice_roll("Fred", "Murtle")
+print(winner)
 
 ```
 
@@ -207,7 +221,37 @@ Process:
      * number of ties (sum(ties))
 
 ```{r}
+dice_roll_15 <- function(name1, name2){
+  prob_roll <- c(rep(1/6, 6))
+  roll_15 <- function(){
+    sample(1:6, 15, replace = T, prob = prob_roll)
+  }
+  
+  p1 <- roll_15()
+  p2 <- roll_15()
+  
+  print(p1)
+  print(p2)
+  
+  p1_wins <- sum(p1 > p2)
+  p2_wins <- sum(p2 > p1)
+  ties <- sum(p1 == p2)
+  
+  print(paste(name1, "wins", p1_wins, "times", sep = " "))
+  print(paste(name2, "wins", p2_wins, "times", sep = " "))
+  print(paste(name1, "and", name2, "tie", ties, "times", sep = " "))
+  
+  if(p1_wins > p2_wins){
+    return(name1)
+  } else if(p2_wins > p1_wins){
+    return(name2)
+  } else {
+    return("draw")
+  }
+}
 
+winner <- dice_roll_15("Dan", "Katie")
+print(paste(winner, "wins."))
 
 ```
 
