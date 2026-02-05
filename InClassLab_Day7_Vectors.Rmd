@@ -76,8 +76,8 @@ combine
 combine[7]
 combine[5:8]
 
-length(combine)
-combine(-4:-18)
+combine[c(1, 2, 3, 19, 20, 21)]
+combine[c(1, 2, 3, length(combine)-2, length(combine)-1, length(combine))]
 
 ```
 
@@ -99,7 +99,8 @@ is.na(x)
 x_no_na <- x[!is.na(x)]
 x_no_na
 
-x_no_na
+x[is.na(x)] <- mean(x_no_na)
+x
 
 ```
 
@@ -149,7 +150,12 @@ proportions
 1. Write a *function* to simulate rolling a 6-sided die and returns the result.
 
 ```{r}
+dice.roll <- function(){
+  dice <- sample(1:6, 1, replace = T)
+  paste(dice)
+}
 
+dice.roll()
 ```
 
 
@@ -157,7 +163,12 @@ proportions
 1. Write a function to simulate rolling 2 6-sided dice that returns the sum of the rolls. 
 
 ```{r}
+dice.roll <- function(){
+  dice <- sample(1:6, 2, replace = T)
+  sum(dice)
+}
 
+dice.roll()
 
 ```
 
