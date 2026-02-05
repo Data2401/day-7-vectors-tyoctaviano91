@@ -178,6 +178,17 @@ dice.roll()
 
 ```{r}
 # Your one-roll function goes here
+dice_roll <- function(name1, name2){
+  prob_roll <- c(rep(1:6, 6))
+  roll <- funtion(){
+    sample(1:6, 1, replace = T, prob = prob_roll)
+  }
+  
+  roll_1 <- roll()
+  roll_2 <- roll()
+  
+}
+
 
 ```
 
